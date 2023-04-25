@@ -5,7 +5,7 @@ This is a bunch of wiki-related notes related to Bloons Wiki and coding for it. 
 * README.md
   * Obviously the readme file
 * beginstuff
-  * I don't know...
+  * I don't know... possibly just the beginning of creating this repository?
 * dreadbloonresistance.py
   * Python file for testing out Dreadbloon resistance suggestion stuff
 * list_of_errored_apopalypse_seeds_by_jessiepatch
@@ -18,3 +18,7 @@ This is a bunch of wiki-related notes related to Bloons Wiki and coding for it. 
     * *even round 200 can crash*
     * *even though there's only one possible combination there, lol*
     * *So basically, if one round breaks, all the other ones are broken too*
+* t5stuff
+  * A copy-paste effort to allow easy renaming of bits of code for semi-automated purposes
+* wikiversionhistories
+  * Copy-paste for the creation of Balance Change subpages for BTD6 balance change stuff

@@ -20,7 +20,7 @@ This is a bunch of wiki-related notes related to Bloons Wiki and coding for it. 
     * *even round 200 can crash*
     * *even though there's only one possible combination there, lol*
     * *So basically, if one round breaks, all the other ones are broken too*
-* t5stuff
+* t5stuff.py
   * A copy-paste effort to allow easy renaming of bits of code for semi-automated purposes
-* wikiversionhistories
+* wikiversionhistories.py
   * Copy-paste for the creation of Balance Change subpages for BTD6 balance change stuff

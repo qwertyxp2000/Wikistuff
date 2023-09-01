@@ -1,4 +1,4 @@
-
+import math
 
 def grid(minimum, maximum):
     # Beast Power
@@ -21,11 +21,11 @@ def grid(minimum, maximum):
 
     for i in range(minimum, maximum + 1):
         b_c = i
-        p_c = p_m + (p_M - p_m)/(b_M - b_m) * (b_c - b_m)
-        d_c = d_m + (d_M - d_m)/(b_M - b_m) * (b_c - b_m)
-        ceramic = roof(p_c/2)
-        moab = roof(p_c/10)
-        bfb = roof(p_c/30)
+        p_c = math.floor(p_m + (p_M - p_m)/(b_M - b_m) * (b_c - b_m))
+        d_c = math.floor(d_m + (d_M - d_m)/(b_M - b_m) * (b_c - b_m))
+        ceramic = math.ceil(p_c/2)
+        moab = math.ceil(p_c/10)
+        bfb = math.ceil(p_c/30)
         
         print("|-")
         print("| %s || %s || %s || ??? || Picks up to %s Ceramics, %s MOABs, %s BFBs, and 2 (targetable) DDT" % (i, p_c, d_c, ceramic, moab, bfb))

@@ -31,7 +31,7 @@ def grid_004(minimum, maximum):
         moab = math.ceil(p_c/10)
         bfb = math.ceil(p_c/30)
         ddt = math.ceil(p_c/50)
-        cooldown = round(0.6-(p_c-p_m)/48*0.286796242, 4) # Rounds to 4dp
+        cooldown = round(0.6-(b_c-b_m)/48*0.286796242, 4) # Rounds to 4dp
         
         print("|-")
         if (ddt > 1):

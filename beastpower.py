@@ -34,9 +34,12 @@ def grid_003(minimum, maximum):
         
         print("|-")
         if (b_c == b_M):
-            print("| %s || %s || %s (+%s Regrow) || %ss || Picks up to %s Ceramics, %s MOABs" % (i, p_c, d_c, regrow_d_bonus, cooldown, ceramic, moab))
+            print("| %s || %s || %s (+%s Regrow) || %ss || Can pick up MOABs. Picks up to %s Ceramics, %s MOABs" % (i, p_c, d_c, regrow_d_bonus, cooldown, ceramic, moab))
         else:
             print("| %s || %s || %s (+%s Regrow) || %ss || Picks up to %s Ceramics" % (i, p_c, d_c, regrow_d_bonus, cooldown, ceramic))
+
+    print("-------------------------------------------------")
+    print("")
 
 # GIANT CONDOR GRID
 def grid_004(minimum, maximum):
@@ -80,6 +83,9 @@ def grid_004(minimum, maximum):
             print("| %s || %s || %s (+%s MOAB-class, +%s Regrow) || %ss || Picks up to %s Ceramics, %s MOABs, %s BFBs, and %s (targetable) DDTs" % (i, p_c, d_c, moab_d_bonus, regrow_d_bonus, cooldown, ceramic, moab, bfb, ddt))
         else:
             print("| %s || %s || %s (+%s MOAB-class, +%s Regrow) || %ss || Picks up to %s Ceramics, %s MOABs, %s BFBs, and %s (targetable) DDT" % (i, p_c, d_c, moab_d_bonus, regrow_d_bonus, cooldown, ceramic, moab, bfb, ddt))
+    print("-------------------------------------------------")
+    print("")
 
+# PRINTING GRIDS
 grid_003(8, 24)
 grid_004(16, 64)

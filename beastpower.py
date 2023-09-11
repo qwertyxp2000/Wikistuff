@@ -86,7 +86,7 @@ def grid_004(minimum, maximum):
     print("-------------------------------------------------")
     print("")
 
-# GIANT CONDOR GRID
+# POUAKAI GRID
 def grid_005(minimum, maximum):
     print("Pouakai...")
     print("")

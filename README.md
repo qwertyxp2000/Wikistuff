@@ -6,10 +6,12 @@ This is a bunch of wiki-related notes related to Bloons Wiki and coding for it. 
   * Obviously the readme file
 * beginstuff
   * I don't know... possibly just the beginning of creating this repository?
+* beastpower.py
+  * Python file for grdding the Beast Handler table data in terms of beast power.
 * dreadbloonresistance.py
   * Python file for testing out Dreadbloon resistance suggestion stuff
 * gridbeasthander.py
-  * Gridding the Beast Handler table data smoothly  
+  * Python file for gridding the Beast Handler table data smoothly  
 * list_of_errored_apopalypse_seeds_by_jessiepatch
   * This is a copy of Jessie Patch's error seed information. They DMed me "broken seeds" and sent me this big list of errored seeds that crashed. Sorted in numerical order.
   * More quotes by Jessie Patch:

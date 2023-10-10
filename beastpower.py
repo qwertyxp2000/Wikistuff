@@ -74,12 +74,14 @@ def grid_004(minimum, maximum):
         d_c = math.floor(d_m + (d_M - d_m)/(b_M - b_m) * (b_c - b_m))
         ceramic = math.ceil(p_c/2) #calculate total max picks from pierce consumption of Ceramics
         moab = math.ceil(p_c/10) #calculate total max picks from pierce consumption of MOABs
-        bfb = math.ceil(p_c/30) #calculate total max picks from pierce consumption of BFBs
+        bfb = math.ceil(p_c/45) #calculate total max picks from pierce consumption of BFBs
         ddt = math.ceil(p_c/50) #calculate total max picks from pierce consumption of targetable DDTs
         cooldown = round(0.6-(b_c-b_m)/(b_M-b_m) * 0.286796242, 4) # Rounds to 4dp
         
         print("|-")
-        if (ddt > 1):
+        if (b_c == b_M): #the 64/64 case
+            print("| %s || %s || %s (+%s MOAB-class, +%s Regrow) || %ss || Picks up to %s Ceramics, %s MOABs, %s BFBs, and %s (targetable) DDTs" % (i, p_c, d_c, moab_d_bonus, regrow_d_bonus, cooldown, ceramic, moab, bfb, ddt))
+        elif (ddt > 1): #the bigger DDT pickups case, which here is 33/64
             print("| %s || %s || %s (+%s MOAB-class, +%s Regrow) || %ss || Picks up to %s Ceramics, %s MOABs, %s BFBs, and %s (targetable) DDTs" % (i, p_c, d_c, moab_d_bonus, regrow_d_bonus, cooldown, ceramic, moab, bfb, ddt))
         else:
             print("| %s || %s || %s (+%s MOAB-class, +%s Regrow) || %ss || Picks up to %s Ceramics, %s MOABs, %s BFBs, and %s (targetable) DDT" % (i, p_c, d_c, moab_d_bonus, regrow_d_bonus, cooldown, ceramic, moab, bfb, ddt))
@@ -97,13 +99,13 @@ def grid_005(minimum, maximum):
     b_c = b_m #Current beast power
     # Pierce
     p_M = 450 #Max pierce
-    p_m = 200 #Min pierce
+    p_m = 150 #Min pierce
     p_c = p_m #Current pierce
     # Damage
-    d_M = 60 #Max damage
-    d_m = 20 #Min damage
+    d_M = 90 #Max damage
+    d_m = 10 #Min damage
     d_c = d_m #Current damage
-    moab_d_bonus = 110 #MOAB-class damage bonus
+    moab_d_bonus = 80 #MOAB-class damage bonus
     regrow_d_bonus = 1 #Regrow damage bonus
 
     #Pierce consumption and total "pierce" of heavier bloons: MOABs, BFBs, DDTs, ZOMGs

@@ -47,17 +47,23 @@ def grid_030(minimum, maximum):
     d_m = 9 #Min damage
     d_c = d_m #Current damage
     # Stunned bonus damage
-    sd_c = 0
+    sd_v = 3 # Apparently velociraptor and stuff have a 3 divisor
+    sd_m = 3
+    sd_c = sd_m #defaulting to sd_m just because
+    # Attack Cooldown
+    r_M = 0.6561 #Max attack speed
+    r_m = 1 #Min attack speed
+    r_c = r_m #Current attack speed (via attack cooldown)
 
     for i in range(minimum, maximum + 1):
         b_c = i #Increment the current beast power along the rows
         p_c = math.floor(p_m + (p_M - p_m)/(b_M - b_m) * (b_c - b_m)) # Calculate pierce
         d_c = math.floor(d_m + (d_M - d_m)/(b_M - b_m) * (b_c - b_m)) # Calculate damage
-        sd_c = math.floor(b_c/2 - 1) # Calculate bonus stunned damage
-        cooldown = round(1-(b_c-b_m)/(b_M-b_m) * 0.3439, 4) # Rounds to 4dp
+        sd_c = sd_m + math.floor((d_c - d_m)/sd_v) # Calculate bonus stunned damage
+        r_c = round(1-(b_c-b_m)/(b_M-b_m) * 0.3439, 4) # Attack cooldown; rounds to 4dp
         
         print("|-")
-        print("| %s || %s || %s (+%s stunned) || %ss || N/A" % (i, p_c, d_c, sd_c, cooldown))
+        print("| %s || %s || %s (+%s stunned) || %ss || N/A" % (i, p_c, d_c, sd_c, r_c))
 
     print("-------------------------------------------------")
     print("")
@@ -80,7 +86,9 @@ def grid_040(minimum, maximum):
     d_m = 32 #Min damage
     d_c = d_m #Current damage
     # Stunned bonus damage
-    sd_c = 0
+    sd_v = 3 # Apparently velociraptor and stuff have a 3 divisor
+    sd_m = 8
+    sd_c = sd_m #defaulting to sd_m just because
     # Attack Cooldown
     r_M = 0.6561 #Max attack speed
     r_m = 1 #Min attack speed
@@ -103,7 +111,7 @@ def grid_040(minimum, maximum):
         b_c = i #Increment the current beast power along the rows
         p_c = math.floor(p_m + (p_M - ap_m)/(b_M - b_m) * (b_c - b_m)) # Calculate pierce
         d_c = math.floor(d_m + (d_M - ad_m)/(b_M - b_m) * (b_c - b_m)) # Calculate damage
-        sd_c = 8 + math.floor((b_c - 16) * 4/9) # Calculate bonus stunned damage
+        sd_c = sd_m + math.floor((d_c - d_m)/sd_v) # Calculate bonus stunned damage
         r_c = round(1-(b_c-b_m)/(b_M-b_m) * 0.3439, 4) # Attack cooldown; rounds to 4dp
 
         if (b_c == 64):

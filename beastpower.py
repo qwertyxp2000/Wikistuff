@@ -103,6 +103,7 @@ def grid_040(minimum, maximum):
         b_c = i #Increment the current beast power along the rows
         p_c = math.floor(p_m + (p_M - ap_m)/(b_M - b_m) * (b_c - b_m)) # Calculate pierce
         d_c = math.floor(d_m + (d_M - ad_m)/(b_M - b_m) * (b_c - b_m)) # Calculate damage
+        sd_c = 8 + math.floor((b_c - 16) * 4/9) # Calculate bonus stunned damage
         r_c = round(1-(b_c-b_m)/(b_M-b_m) * 0.3439, 4) # Attack cooldown; rounds to 4dp
 
         if (b_c == 64):

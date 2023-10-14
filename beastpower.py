@@ -81,55 +81,55 @@ def grid_040(minimum, maximum):
     d_c = d_m #Current damage
     # Stunned bonus damage
     sd_c = 0
+    # Attack Cooldown
+    r_M = 0.6561 #Max attack speed
+    r_m = 1 #Min attack speed
+    r_c = r_m #Current attack speed (via attack cooldown)
+
+    # Ability Pierce
+    ap_M = 60 #Max pierce
+    ap_m = 24 #Min pierce
+    ap_c = p_m #Current pierce
+    # Ability Damage
+    ad_M = 96 #Max damage
+    ad_m = 32 #Min damage
+    ad_c = d_m #Current damage
+    # NOTE: Ability doesn't do bonus stunned damage
+    # Ability Cooldown
+    a_m = 35 # Ability cooldown of min power beast
+    a_c = a_m #Current ability cooldown
 
     for i in range(minimum, maximum + 1):
         b_c = i #Increment the current beast power along the rows
-        p_c = math.floor(p_m + (p_M - p_m)/(b_M - b_m) * (b_c - b_m)) # Calculate pierce
-        d_c = math.floor(d_m + (d_M - d_m)/(b_M - b_m) * (b_c - b_m)) # Calculate damage
-        sd_c = 8 + math.floor((b_c - 16) * 4/9) # Calculate bonus stunned damage
-        cooldown = round(1-(b_c-b_m)/(b_M-b_m) * 0.3439, 4) # Rounds to 4dp
+        p_c = math.floor(p_m + (p_M - ap_m)/(b_M - b_m) * (b_c - b_m)) # Calculate pierce
+        d_c = math.floor(d_m + (d_M - ad_m)/(b_M - b_m) * (b_c - b_m)) # Calculate damage
+        r_c = round(1-(b_c-b_m)/(b_M-b_m) * 0.3439, 4) # Attack cooldown; rounds to 4dp
 
         if (b_c == 64):
             print("|-")
-            print("| %s || %s || %s (+%s stunned) || %ss || Penetrates damage through MOAB-class bloons" % (i, p_c, d_c, sd_c, cooldown))
+            print("| %s || %s || %s (+%s stunned) || %ss || Penetrates damage through MOAB-class bloons" % (i, p_c, d_c, sd_c, r_c))
         else:
             print("|-")
-            print("| %s || %s || %s (+%s stunned) || %ss || N/A" % (i, p_c, d_c, sd_c, cooldown))
+            print("| %s || %s || %s (+%s stunned) || %ss || N/A" % (i, p_c, d_c, sd_c, r_c))
 
     print("-------------------------------------------------")
     print("")
 
-# TREX STOMP GRID
-def grid_040_stomp(minimum, maximum):
     print("T-Rex Stomp...")
     print("")
-    
-    # Beast Power
-    b_M = 64 # Max beast power
-    b_m = 16 # Min beast power 
-    b_c = b_m #Current beast power
-    # Pierce
-    p_M = 400 #Max pierce
-    p_m = 436 #Min pierce
-    p_c = p_m #Current pierce
-    # Damage
-    d_M = 150 #Max damage
-    d_m = 214 #Min damage
-    d_c = d_m #Current damage
-    # the stomp ability has no bonus stunned damage
-
     for i in range(minimum, maximum + 1):
         b_c = i #Increment the current beast power along the rows
-        p_c = math.floor(p_m + (p_M - p_m)/(b_M - b_m) * (b_c - b_m)) # Calculate pierce
-        d_c = math.floor(d_m + (d_M - d_m)/(b_M - b_m) * (b_c - b_m)) # Calculate damage
-        cooldown = round(35 *(1-0.5*(b_c-b_m)/(b_M-b_m)), 4) # Rounds to 4dp
+        ap_c = math.floor(ap_m + (ap_M - ap_m)/(b_M - b_m) * (b_c - b_m)) # Calculate pierce
+        ad_c = math.floor(ad_m + (ad_M - ad_m)/(b_M - b_m) * (b_c - b_m)) # Calculate damage
+        r_c = round(1-(b_c-b_m)/(b_M-b_m) * 0.3439, 4) # Attack cooldown; rounds to 4dp; you need it for that a_c calculation nonsense
+        a_c = round(a_m * (1 - (r_m - r_c)/r_c), 4) # Rounds to 4dp
 
         if (b_c == 64):
             print("|-")
-            print("| %s || %s || %s || %ss || Penetrates damage through MOAB-class bloons" % (i, p_c, d_c, cooldown))
+            print("| %s || %s || %s || %ss || Penetrates damage through MOAB-class bloons" % (i, ap_c, ad_c, a_c))
         else:
             print("|-")
-            print("| %s || %s || %s || %ss || N/A" % (i, p_c, d_c, cooldown))
+            print("| %s || %s || %s || %ss || N/A" % (i, ap_c, ad_c, a_c))
 
     print("-------------------------------------------------")
     print("")
@@ -306,7 +306,6 @@ def grid_005(minimum, maximum):
 grid_020(3, 6)
 grid_030(8, 24)
 grid_040(16, 64)
-grid_040_stomp(16, 64)
 #grid_002(3, 6)
 #grid_003(8, 24)
 #grid_004(16, 64)

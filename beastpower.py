@@ -1,4 +1,104 @@
 import math
+# ADASAURUS GRID
+def grid_020(minimum, maximum):
+    print("Adasaurus...")
+    print("")
+    
+    # Beast Power
+    b_M = 6 # Max beast power
+    b_m = 3 # Min beast power 
+    b_c = b_m #Current beast power
+    # Pierce
+    p_M = 20 #Max pierce
+    p_m = 8 #Min pierce
+    p_c = p_m #Current pierce
+    # Damage
+    d_M = 6 #Max damage
+    d_m = 3 #Min damage
+    d_c = d_m #Current damage
+
+    for i in range(minimum, maximum + 1):
+        b_c = i #Increment the current beast power along the rows
+        p_c = math.floor(p_m + (p_M - p_m)/(b_M - b_m) * (b_c - b_m)) # Calculate pierce
+        d_c = math.floor(d_m + (d_M - d_m)/(b_M - b_m) * (b_c - b_m)) # Calculate damage
+        cooldown = round(1-(b_c-b_m)/(b_M-b_m) * 0.3439, 4) # Rounds to 4dp
+        
+        print("|-")
+        print("| %s || %s || %s || %ss || N/A" % (i, p_c, d_c, cooldown))
+
+    print("-------------------------------------------------")
+    print("")
+
+# VELOCIRAPTOR GRID
+def grid_030(minimum, maximum):
+    print("Velociraptor...")
+    print("")
+    
+    # Beast Power
+    b_M = 24 # Max beast power
+    b_m = 8 # Min beast power 
+    b_c = b_m #Current beast power
+    # Pierce
+    p_M = 35 #Max pierce
+    p_m = 14 #Min pierce
+    p_c = p_m #Current pierce
+    # Damage
+    d_M = 27 #Max damage
+    d_m = 9 #Min damage
+    d_c = d_m #Current damage
+    # Stunned bonus damage
+    sd_c = 0
+
+    for i in range(minimum, maximum + 1):
+        b_c = i #Increment the current beast power along the rows
+        p_c = math.floor(p_m + (p_M - p_m)/(b_M - b_m) * (b_c - b_m)) # Calculate pierce
+        d_c = math.floor(d_m + (d_M - d_m)/(b_M - b_m) * (b_c - b_m)) # Calculate damage
+        sd_c = math.floor(b_c/2 - 1) # Calculate bonus stunned damage
+        cooldown = round(1-(b_c-b_m)/(b_M-b_m) * 0.3439, 4) # Rounds to 4dp
+        
+        print("|-")
+        print("| %s || %s || %s (+%s stunned) || %ss || N/A" % (i, p_c, d_c, sd_c, cooldown))
+
+    print("-------------------------------------------------")
+    print("")
+    
+# HORNED OWL GRID
+def grid_002(minimum, maximum):
+    print("Horned Owl...")
+    print("")
+    
+    # Beast Power
+    b_M = 6 # Max beast power
+    b_m = 3 # Min beast power 
+    b_c = b_m #Current beast power
+    # Pierce
+    p_M = 18 #Max pierce
+    p_m = 6 #Min pierce
+    p_c = p_m #Current pierce
+    # Damage
+    d_M = 2 #Max damage
+    d_m = 1 #Min damage
+    d_c = d_m #Current damage
+    regrow_d_bonus = 1 #Regrow damage bonus
+
+    #Pierce consumption and total "pierce" of heavier bloons: Ceramics, MOABs
+    lead = 0 #Quantity of Leads picked up
+    ceramic = 0 #Quantity of Ceramics picked up
+
+    # NOTE TO SELF: Perhaps it is better to not hardcode pierce consumptions into heavy bloon types; it should be a better idea to just make a ceramic_consumption etc. type variables and then softcode them from there...
+    for i in range(minimum, maximum + 1):
+        b_c = i #Increment the current beast power along the rows
+        p_c = math.floor(p_m + (p_M - p_m)/(b_M - b_m) * (b_c - b_m)) # Calculate pierce
+        d_c = math.floor(d_m + (d_M - d_m)/(b_M - b_m) * (b_c - b_m)) # Calculate damage
+        lead = math.ceil(p_c/2) #calculate total max picks from pierce consumption of Leads
+        ceramic = math.ceil(p_c/6) #calculate total max picks from pierce consumption of Ceramics
+        cooldown = round(0.7-(b_c-b_m)/(b_M-b_m) * 0.286796242, 4) # Rounds to 4dp
+        
+        print("|-")
+        print("| %s || %s || %s (+%s Regrow) || %ss || Picks up to %s Leads, %s Ceramics" % (i, p_c, d_c, regrow_d_bonus, cooldown, lead, ceramic))
+
+    print("-------------------------------------------------")
+    print("")
 
 # GOLDEN EAGLE GRID
 def grid_003(minimum, maximum):
@@ -131,6 +231,10 @@ def grid_005(minimum, maximum):
     print("")
 
 # PRINTING GRIDS
-grid_003(8, 24)
-grid_004(16, 64)
-grid_005(36, 132)
+grid_020(3, 6)
+grid_030(8, 24)
+grid_040(16, 64)
+#grid_002(3, 6)
+#grid_003(8, 24)
+#grid_004(16, 64)
+#grid_005(36, 132)

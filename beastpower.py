@@ -51,8 +51,9 @@ def grid_030(minimum, maximum):
     sd_m = 3
     sd_c = sd_m #defaulting to sd_m just because
     # Attack Cooldown
-    r_M = 0.6561 #Max attack speed
+    r_s = 0.3439 #Attack cooldown scaler
     r_m = 1 #Min attack speed
+    r_M = r_m - r_s
     r_c = r_m #Current attack speed (via attack cooldown)
 
     for i in range(minimum, maximum + 1):
@@ -90,13 +91,14 @@ def grid_040(minimum, maximum):
     sd_m = 8
     sd_c = sd_m #defaulting to sd_m just because
     # Attack Cooldown
-    r_M = 0.6561 #Max attack speed
+    r_s = 0.3439 #Attack cooldown scaler
     r_m = 1 #Min attack speed
+    r_M = r_m - r_s
     r_c = r_m #Current attack speed (via attack cooldown)
 
     # Ability Pierce
-    ap_M = 400 #Max pierce
-    ap_m = 436 #Min pierce
+    ap_M = 436 #Max pierce
+    ap_m = 400 #Min pierce
     ap_c = p_m #Current pierce
     # Ability Damage
     ad_M = 214 #Max damage
@@ -112,9 +114,9 @@ def grid_040(minimum, maximum):
         p_c = math.floor(p_m + (p_M - p_m)/(b_M - b_m) * (b_c - b_m)) # Calculate pierce
         d_c = math.floor(d_m + (d_M - d_m)/(b_M - b_m) * (b_c - b_m)) # Calculate damage
         sd_c = sd_m + math.floor((d_c - d_m)/sd_v) # Calculate bonus stunned damage
-        r_c = round(1-(b_c-b_m)/(b_M-b_m) * 0.3439, 4) # Attack cooldown; rounds to 4dp
+        r_c = round(r_m-(b_c-b_m)/(b_M-b_m) * r_s, 4) # Attack cooldown; rounds to 4dp
 
-        if (b_c == 64):
+        if (b_c == b_M):
             print("|-")
             print("| %s || %s || %s (+%s stunned) || %ss || Penetrates damage through MOAB-class bloons" % (i, p_c, d_c, sd_c, r_c))
         else:
@@ -130,10 +132,86 @@ def grid_040(minimum, maximum):
         b_c = i #Increment the current beast power along the rows
         ap_c = math.floor(ap_m + (ap_M - ap_m)/(b_M - b_m) * (b_c - b_m)) # Calculate pierce
         ad_c = math.floor(ad_m + (ad_M - ad_m)/(b_M - b_m) * (b_c - b_m)) # Calculate damage
-        r_c = round(1-(b_c-b_m)/(b_M-b_m) * 0.3439, 4) # Attack cooldown; rounds to 4dp; you need it for that a_c calculation nonsense
+        r_c = round(r_m-(b_c-b_m)/(b_M-b_m) * r_s, 4) # Attack cooldown; rounds to 4dp; you need it for that a_c calculation nonsense
         a_c = round(a_m * (1 - (r_m - r_c)/r_c), 4) # Rounds to 4dp
 
-        if (b_c == 64):
+        if (b_c == b_M):
+            print("|-")
+            print("| %s || %s || %s || %ss || Penetrates damage through MOAB-class bloons" % (i, ap_c, ad_c, a_c))
+        else:
+            print("|-")
+            print("| %s || %s || %s || %ss || N/A" % (i, ap_c, ad_c, a_c))
+
+    print("-------------------------------------------------")
+    print("")
+
+# GIGANOTOSAURUS GRID
+def grid_050(minimum, maximum):
+    print("Giganotorsaurus...")
+    print("")
+    
+    # Beast Power
+    b_M = 132 # Max beast power
+    b_m = 36 # Min beast power 
+    b_c = b_m #Current beast power
+    # Pierce
+    p_M = 150 #Max pierce
+    p_m = 60 #Min pierce
+    p_c = p_m #Current pierce
+    # Damage
+    d_M = 1550 #Max damage
+    d_m = 750 #Min damage
+    d_c = d_m #Current damage
+    # Stunned bonus damage
+    sd_v = 3 # Apparently velociraptor and stuff have a 3 divisor
+    sd_m = 250
+    sd_c = sd_m #defaulting to sd_m just because
+    # Attack Cooldown
+    r_s = 0.3439 #Attack cooldown scaler
+    r_m = 1.25 #Min attack speed
+    r_M = r_m - r_s
+    r_c = r_m #Current attack speed (via attack cooldown)
+
+    # Ability Pierce
+    ap_M = 690 #Max pierce
+    ap_m = 600 #Min pierce
+    ap_c = p_m #Current pierce
+    # Ability Damage
+    ad_M = 950 #Max damage
+    ad_m = 150 #Min damage
+    ad_c = d_m #Current damage
+    # NOTE: Ability doesn't do bonus stunned damage
+    # Ability Cooldown
+    a_m = 25 # Ability cooldown of min power beast
+    a_c = a_m #Current ability cooldown
+
+    for i in range(minimum, maximum + 1):
+        b_c = i #Increment the current beast power along the rows
+        p_c = math.floor(p_m + (p_M - p_m)/(b_M - b_m) * (b_c - b_m)) # Calculate pierce
+        d_c = math.floor(d_m + (d_M - d_m)/(b_M - b_m) * (b_c - b_m)) # Calculate damage
+        sd_c = sd_m + math.floor((d_c - d_m)/sd_v) # Calculate bonus stunned damage
+        r_c = round(r_m-(b_c-b_m)/(b_M-b_m) * r_s, 4) # Attack cooldown; rounds to 4dp
+
+        if (b_c == b_M):
+            print("|-")
+            print("| %s || %s || %s (+%s stunned) || %ss || Penetrates damage through MOAB-class bloons" % (i, p_c, d_c, sd_c, r_c))
+        else:
+            print("|-")
+            print("| %s || %s || %s (+%s stunned) || %ss || N/A" % (i, p_c, d_c, sd_c, r_c))
+
+    print("-------------------------------------------------")
+    print("")
+
+    print("Giganotosaurus Stomp...")
+    print("")
+    for i in range(minimum, maximum + 1):
+        b_c = i #Increment the current beast power along the rows
+        ap_c = math.floor(ap_m + (ap_M - ap_m)/(b_M - b_m) * (b_c - b_m)) # Calculate pierce
+        ad_c = math.floor(ad_m + (ad_M - ad_m)/(b_M - b_m) * (b_c - b_m)) # Calculate damage
+        r_c = round(r_m-(b_c-b_m)/(b_M-b_m) * r_s, 4) # Attack cooldown; rounds to 4dp; you need it for that a_c calculation nonsense
+        a_c = round(a_m * (1 - (r_m - r_c)/r_c), 4) # Rounds to 4dp
+
+        if (b_c == b_M):
             print("|-")
             print("| %s || %s || %s || %ss || Penetrates damage through MOAB-class bloons" % (i, ap_c, ad_c, a_c))
         else:
@@ -315,6 +393,7 @@ def grid_005(minimum, maximum):
 grid_020(3, 6)
 grid_030(8, 24)
 grid_040(16, 64)
+grid_050(36, 132)
 #grid_002(3, 6)
 #grid_003(8, 24)
 #grid_004(16, 64)

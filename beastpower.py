@@ -95,12 +95,12 @@ def grid_040(minimum, maximum):
     r_c = r_m #Current attack speed (via attack cooldown)
 
     # Ability Pierce
-    ap_M = 60 #Max pierce
-    ap_m = 24 #Min pierce
+    ap_M = 400 #Max pierce
+    ap_m = 436 #Min pierce
     ap_c = p_m #Current pierce
     # Ability Damage
-    ad_M = 96 #Max damage
-    ad_m = 32 #Min damage
+    ad_M = 214 #Max damage
+    ad_m = 150 #Min damage
     ad_c = d_m #Current damage
     # NOTE: Ability doesn't do bonus stunned damage
     # Ability Cooldown
@@ -109,8 +109,8 @@ def grid_040(minimum, maximum):
 
     for i in range(minimum, maximum + 1):
         b_c = i #Increment the current beast power along the rows
-        p_c = math.floor(p_m + (p_M - ap_m)/(b_M - b_m) * (b_c - b_m)) # Calculate pierce
-        d_c = math.floor(d_m + (d_M - ad_m)/(b_M - b_m) * (b_c - b_m)) # Calculate damage
+        p_c = math.floor(p_m + (p_M - p_m)/(b_M - b_m) * (b_c - b_m)) # Calculate pierce
+        d_c = math.floor(d_m + (d_M - d_m)/(b_M - b_m) * (b_c - b_m)) # Calculate damage
         sd_c = sd_m + math.floor((d_c - d_m)/sd_v) # Calculate bonus stunned damage
         r_c = round(1-(b_c-b_m)/(b_M-b_m) * 0.3439, 4) # Attack cooldown; rounds to 4dp
 

@@ -249,8 +249,8 @@ def grid_002(minimum, maximum):
         b_c = i #Increment the current beast power along the rows
         p_c = math.floor(p_m + (p_M - p_m)/(b_M - b_m) * (b_c - b_m)) # Calculate pierce
         d_c = math.floor(d_m + (d_M - d_m)/(b_M - b_m) * (b_c - b_m)) # Calculate damage
-        lead = math.ceil(p_c/2) #calculate total max picks from pierce consumption of Leads
-        ceramic = math.ceil(p_c/6) #calculate total max picks from pierce consumption of Ceramics
+        lead = math.floor(p_c/2) #calculate total max picks from pierce consumption of Leads; NOTE: pierce consumption on Leads floors, not roofs
+        ceramic = math.floor(p_c/6) #calculate total max picks from pierce consumption of Ceramics; NOTE: pierce consumption on Ceramics floors, not roofs
         cooldown = round(0.7-(b_c-b_m)/(b_M-b_m) * 0.286796242, 4) # Rounds to 4dp
         
         print("|-")
@@ -390,11 +390,11 @@ def grid_005(minimum, maximum):
     print("")
 
 # PRINTING GRIDS
-grid_020(3, 6)
-grid_030(8, 24)
-grid_040(16, 64)
-grid_050(36, 132)
-#grid_002(3, 6)
+#grid_020(3, 6)
+#grid_030(8, 24)
+#grid_040(16, 64)
+#grid_050(36, 132)
+grid_002(3, 6)
 #grid_003(8, 24)
 #grid_004(16, 64)
 #grid_005(36, 132)

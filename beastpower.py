@@ -1,4 +1,39 @@
 import math
+# GREAT WHITE GRID
+def grid_300(minimum, maximum):
+    print("Great White...")
+    print("")
+    
+    # Beast Power
+    b_M = 24 # Max beast power
+    b_m = 8 # Min beast power 
+    b_c = b_m #Current beast power
+    # Pierce
+    p_M = 30 #Max pierce
+    p_m = 10 #Min pierce
+    p_c = p_m #Current pierce
+    # Damage
+    d_M = 24 #Max damage
+    d_m = 8 #Min damage
+    d_c = d_m #Current damage
+    # Knockback duration
+    k_M = 0.4 #Max knockback
+    k_m = 0.2 #Min knockback
+    k_c = k_m #Current knockback
+
+    for i in range(minimum, maximum + 1):
+        b_c = i #Increment the current beast power along the rows
+        p_c = math.floor(p_m + (p_M - p_m)/(b_M - b_m) * (b_c - b_m)) # Calculate pierce
+        d_c = math.floor(d_m + (d_M - d_m)/(b_M - b_m) * (b_c - b_m)) # Calculate damage
+        cooldown = round(0.55-(b_c-b_m)/(b_M-b_m) * (0.55 - 0.36), 4) # Rounds to 4dp
+        k_c = round(k_m + (k_M - k_m)/(b_M - b_m) * (b_c - b_m), 4) # Calculate knockback, rounds to 4dp
+        
+        print("|-")
+        print("| %s || 1 (grab)<br />%s (splash) || 250,000 (grab, instakill trigger)<br />%s (splash)|| ???s (grapple)<br />%ss (splash, ???x) || Inflicts %ss knockback via splash." % (i, p_c, d_c, cooldown, k_c))
+
+    print("-------------------------------------------------")
+    print("")
+    
 # ADASAURUS GRID
 def grid_020(minimum, maximum):
     print("Adasaurus...")
@@ -390,11 +425,12 @@ def grid_005(minimum, maximum):
     print("")
 
 # PRINTING GRIDS
+grid_300(8, 24)
 #grid_020(3, 6)
 #grid_030(8, 24)
 #grid_040(16, 64)
 #grid_050(36, 132)
-grid_002(3, 6)
+#grid_002(3, 6)
 #grid_003(8, 24)
 #grid_004(16, 64)
 #grid_005(36, 132)

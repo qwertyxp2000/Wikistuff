@@ -1,0 +1,6 @@
+paragoncost = 150000
+costs = [[paragoncost * 3 * 0.85, paragoncost * 3, paragoncost * 3 * 1.08, paragoncost * 3 * 1.2], [paragoncost * 3.15 * 0.85, paragoncost * 3.15, paragoncost * 3.15 * 1.08, paragoncost * 3.15 * 1.2]]
+
+print("To max out on manual cash sacrifices starting from v39.0, the player must spend at least \
+$%s on Easy, $%s on Medium, $%s on Hard, and $%s on Impoppable; before v39.0, the max cash sacrifices was $250,000. \
+With max slider, these costs increase to $%s on Easy, $%s on Medium, $%s on Hard, and $%s on Impoppable." % (format(int(costs[0][0]), ","), format(int(costs[0][1]), ","), format(int(costs[0][2]), ","), format(int(costs[0][3]), ","), format(int(costs[1][0]), ","), format(int(costs[1][1]), ","), format(int(costs[1][2]), ","), format(int(costs[1][3]), ",")))

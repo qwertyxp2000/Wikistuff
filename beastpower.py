@@ -413,8 +413,8 @@ def grid_005(minimum, maximum):
         b_c = i
         p_c = math.floor(p_m + (p_M - p_m)/(b_M - b_m) * (b_c - b_m))
         d_c = math.floor(d_m + (d_M - d_m)/(b_M - b_m) * (b_c - b_m))
-        moab = math.ceil(p_c/10) #calculate total max picks from pierce consumption of MOABs
-        bfb = math.ceil(p_c/30) #calculate total max picks from pierce consumption of BFBs
+        moab = math.ceil(p_c/15) #calculate total max picks from pierce consumption of MOABs
+        bfb = math.ceil(p_c/45) #calculate total max picks from pierce consumption of BFBs
         ddt = math.ceil(p_c/50) #calculate total max picks from pierce consumption of DDTs
         zomg = math.ceil(p_c/50) #calculate total max picks from pierce consumption of ZOMGs
         cooldown = round(0.6-(b_c-b_m)/(b_M-b_m) * 0.286796242, 4) # Rounds to 4dp

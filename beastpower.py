@@ -114,12 +114,12 @@ def grid_040(minimum, maximum):
     b_m = 16 # Min beast power 
     b_c = b_m #Current beast power
     # Pierce
-    p_M = 60 #Max pierce
-    p_m = 24 #Min pierce
+    p_M = 55 #Max pierce
+    p_m = 22 #Min pierce
     p_c = p_m #Current pierce
     # Damage
-    d_M = 96 #Max damage
-    d_m = 32 #Min damage
+    d_M = 90 #Max damage
+    d_m = 30 #Min damage
     d_c = d_m #Current damage
     # Stunned bonus damage
     sd_v = 3 # Apparently velociraptor and stuff have a 3 divisor

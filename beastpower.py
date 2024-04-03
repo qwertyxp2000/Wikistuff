@@ -30,9 +30,47 @@ def grid_300(minimum, maximum):
         
         print("|-")
         if (b_c == b_M):
-            print("| %s || 1 (grab)<br />%s (splash) || 250,000 (grab, instakill trigger)<br />%s (splash)|| 1.1s (grapple)<br />%ss (splash) || Inflicts %ss knockback via splash. Can instakill MOABs with less than threshold amount." % (i, p_c, d_c, cooldown_splash, k_c))
+            print("| %s || 1 (grab)<br />%s (splash) || 250,000 (grab, instakill trigger)<br />%s (splash)|| 1.1s (grapple)<br />%ss (splash) || Inflicts %ss knockback via splash. Can trigger instakill on MOABs with less than threshold amount, pulling a single target into the water." % (i, p_c, d_c, cooldown_splash, k_c))
         else:
             print("| %s || 1 (grab)<br />%s (splash) || 250,000 (grab, instakill trigger)<br />%s (splash)|| 1.1s (grapple)<br />%ss (splash) || Inflicts %ss knockback via splash." % (i, p_c, d_c, cooldown_splash, k_c))
+
+    print("-------------------------------------------------")
+    print("")
+    
+    # ORCA GRID
+def grid_400(minimum, maximum):
+    print("Orca...")
+    print("")
+    
+    # Beast Power
+    b_M = 64 # Max beast power
+    b_m = 16 # Min beast power 
+    b_c = b_m #Current beast power
+    # Pierce
+    p_M = 60 #Max pierce
+    p_m = 20 #Min pierce
+    p_c = p_m #Current pierce
+    # Damage
+    d_M = 90 #Max damage
+    d_m = 30 #Min damage
+    d_c = d_m #Current damage
+    # Knockback duration
+    k_M = 0.6 #Max knockback
+    k_m = 0.3 #Min knockback
+    k_c = k_m #Current knockback
+
+    for i in range(minimum, maximum + 1):
+        b_c = i #Increment the current beast power along the rows
+        p_c = math.floor(p_m + (p_M - p_m)/(b_M - b_m) * (b_c - b_m)) # Calculate pierce
+        d_c = math.floor(d_m + (d_M - d_m)/(b_M - b_m) * (b_c - b_m)) # Calculate damage
+        cooldown_splash = round(0.55-(b_c-b_m)/(b_M-b_m) * (0.55 - 0.36), 4) # Rounds to 4dp
+        k_c = round(k_m + (k_M - k_m)/(b_M - b_m) * (b_c - b_m), 4) # Calculate knockback, rounds to 4dp
+        
+        print("|-")
+        if (b_c == b_M):
+            print("| %s || 1 (grab)<br />%s (splash) || 250,000 (grab, instakill trigger)<br />%s (splash)|| 1.1s (grapple)<br />%ss (splash) || Inflicts %ss knockback via splash. Can trigger instakill on MOABs, BFBs, ZOMGs, and visible DDTs with less than threshold amount, pulling a single target into the water." % (i, p_c, d_c, cooldown_splash, k_c))
+        else:
+            print("| %s || 1 (grab)<br />%s (splash) || 250,000 (grab, instakill trigger)<br />%s (splash)|| 1.1s (grapple)<br />%ss (splash) || Inflicts %ss knockback via splash. Can trigger instakill on MOABs and BFBs with less than threshold amount, pulling a single target into the water." % (i, p_c, d_c, cooldown_splash, k_c))
 
     print("-------------------------------------------------")
     print("")
@@ -429,6 +467,7 @@ def grid_005(minimum, maximum):
 
 # PRINTING GRIDS
 grid_300(8, 24)
+grid_400(16, 64)
 #grid_020(3, 6)
 #grid_030(8, 24)
 #grid_040(16, 64)

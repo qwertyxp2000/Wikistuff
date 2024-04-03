@@ -29,7 +29,10 @@ def grid_300(minimum, maximum):
         k_c = round(k_m + (k_M - k_m)/(b_M - b_m) * (b_c - b_m), 4) # Calculate knockback, rounds to 4dp
         
         print("|-")
-        print("| %s || 1 (grab)<br />%s (splash) || 250,000 (grab, instakill trigger)<br />%s (splash)|| 1.1s (grapple)<br />%ss (splash) || Inflicts %ss knockback via splash." % (i, p_c, d_c, cooldown_splash, k_c))
+        if (b_c == b_M):
+            print("| %s || 1 (grab)<br />%s (splash) || 250,000 (grab, instakill trigger)<br />%s (splash)|| 1.1s (grapple)<br />%ss (splash) || Inflicts %ss knockback via splash. Can instakill MOABs with less than threshold amount." % (i, p_c, d_c, cooldown_splash, k_c))
+        else:
+            print("| %s || 1 (grab)<br />%s (splash) || 250,000 (grab, instakill trigger)<br />%s (splash)|| 1.1s (grapple)<br />%ss (splash) || Inflicts %ss knockback via splash." % (i, p_c, d_c, cooldown_splash, k_c))
 
     print("-------------------------------------------------")
     print("")

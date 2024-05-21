@@ -349,8 +349,8 @@ def grid_003(minimum, maximum):
     p_m = 15 #Min pierce
     p_c = p_m #Current pierce
     # Damage
-    d_M = 6 #Max damage
-    d_m = 2 #Min damage
+    d_M = 3 #Max damage
+    d_m = 1 #Min damage
     d_c = d_m #Current damage
     regrow_d_bonus = 1 #Regrow damage bonus
 
@@ -364,7 +364,7 @@ def grid_003(minimum, maximum):
         p_c = math.floor(p_m + (p_M - p_m)/(b_M - b_m) * (b_c - b_m)) # Calculate pierce
         d_c = math.floor(d_m + (d_M - d_m)/(b_M - b_m) * (b_c - b_m)) # Calculate damage
         ceramic = math.ceil(p_c/2) #calculate total max picks from pierce consumption of Ceramics
-        moab = math.ceil(p_c/15) #calculate total max picks from pierce consumption of MOABs
+        moab = math.ceil(p_c/45) #calculate total max picks from pierce consumption of MOABs
         cooldown = round(0.6-(b_c-b_m)/(b_M-b_m) * 0.286796242, 4) # Rounds to 4dp
         
         print("|-")
@@ -466,13 +466,13 @@ def grid_005(minimum, maximum):
     print("")
 
 # PRINTING GRIDS
-grid_300(8, 24)
-grid_400(16, 64)
+#grid_300(8, 24)
+#grid_400(16, 64)
 #grid_020(3, 6)
 #grid_030(8, 24)
 #grid_040(16, 64)
 #grid_050(36, 132)
 #grid_002(3, 6)
-#grid_003(8, 24)
+grid_003(8, 24)
 #grid_004(16, 64)
 #grid_005(36, 132)

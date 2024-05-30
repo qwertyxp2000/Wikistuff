@@ -357,8 +357,8 @@ def grid_003(minimum, maximum):
     b_m = 8 # Min beast power 
     b_c = b_m #Current beast power
     # Pierce
-    p_M = 45 #Max pierce
-    p_m = 15 #Min pierce
+    p_M = 90 #Max pierce
+    p_m = 30 #Min pierce
     p_c = p_m #Current pierce
     # Damage
     d_M = 3 #Max damage
@@ -377,7 +377,7 @@ def grid_003(minimum, maximum):
         d_c = math.floor(d_m + (d_M - d_m)/(b_M - b_m) * (b_c - b_m)) # Calculate damage
         ceramic = math.ceil(p_c/2) #calculate total max picks from pierce consumption of Ceramics
         moab = math.ceil(p_c/1089) #calculate total max picks from pierce consumption of MOABs
-        cooldown = round(0.6-(b_c-b_m)/(b_M-b_m) * 0.286796242, 4) # Rounds to 4dp
+        cooldown = round(0.6-(b_c-b_m)/(b_M-b_m) * 0.28, 4) # Rounds to 4dp
         
         print("|-")
         if (b_c == b_M):
@@ -425,11 +425,11 @@ def grid_004(minimum, maximum):
         
         print("|-")
         if (b_c == b_M): #the 64/64 case
-            print("| %s || %s || %s (+%s MOAB-class, +%s Regrow) || %ss || Picks up to %s MOABs, %s BFBs, and %s (targetable) DDTs. Can target and damage any MOAB-class bloon." % (i, p_c, d_c, moab_d_bonus, regrow_d_bonus, cooldown, ceramic, moab, bfb, ddt))
+            print("| %s || %s || %s (+%s MOAB-class, +%s Regrow) || %ss || Picks up to %s MOABs, %s BFBs, and %s (targetable) DDTs. Can target and damage any MOAB-class bloon." % (i, p_c, d_c, moab_d_bonus, regrow_d_bonus, cooldown, moab, bfb, ddt))
         elif (ddt > 1): #the bigger DDT pickups case, which here is 33/64
-            print("| %s || %s || %s (+%s MOAB-class, +%s Regrow) || %ss || Picks up to %s MOABs, %s BFBs, and %s (targetable) DDTs" % (i, p_c, d_c, moab_d_bonus, regrow_d_bonus, cooldown, ceramic, moab, bfb, ddt))
+            print("| %s || %s || %s (+%s MOAB-class, +%s Regrow) || %ss || Picks up to %s MOABs, %s BFBs, and %s (targetable) DDTs" % (i, p_c, d_c, moab_d_bonus, regrow_d_bonus, cooldown, moab, bfb, ddt))
         else:
-            print("| %s || %s || %s (+%s MOAB-class, +%s Regrow) || %ss || Picks up to %s MOABs, %s BFBs, and %s (targetable) DDT" % (i, p_c, d_c, moab_d_bonus, regrow_d_bonus, cooldown, ceramic, moab, bfb, ddt))
+            print("| %s || %s || %s (+%s MOAB-class, +%s Regrow) || %ss || Picks up to %s MOABs, %s BFBs, and %s (targetable) DDT" % (i, p_c, d_c, moab_d_bonus, regrow_d_bonus, cooldown, moab, bfb, ddt))
     print("-------------------------------------------------")
     print("")
 

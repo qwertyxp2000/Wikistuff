@@ -425,7 +425,7 @@ def grid_004(minimum, maximum):
         
         print("|-")
         if (b_c == b_M): #the 64/64 case
-            print("| %s || %s || %s (+%s MOAB-class, +%s Regrow) || %ss || Picks up to %s MOABs, %s BFBs, and %s (targetable) DDTs. Can target and damage any MOAB-class bloon." % (i, p_c, d_c, moab_d_bonus, regrow_d_bonus, cooldown, moab, bfb, ddt))
+            print("| %s || %s || %s (+%s MOAB-class, +%s Regrow) || %ss || Picks up to %s MOABs, %s BFBs, and %s (targetable) DDTs. Can target and damage any unpickable MOAB-class bloon." % (i, p_c, d_c, moab_d_bonus, regrow_d_bonus, cooldown, moab, bfb, ddt))
         elif (ddt > 1): #the bigger DDT pickups case, which here is 33/64
             print("| %s || %s || %s (+%s MOAB-class, +%s Regrow) || %ss || Picks up to %s MOABs, %s BFBs, and %s (targetable) DDTs" % (i, p_c, d_c, moab_d_bonus, regrow_d_bonus, cooldown, moab, bfb, ddt))
         else:

@@ -13,26 +13,32 @@ def grid_300(minimum, maximum):
     p_m = 10 #Min pierce
     p_c = p_m #Current pierce
     # Damage
-    d_M = 24 #Max damage
-    d_m = 8 #Min damage
+    d_M = 36 #Max damage
+    d_m = 12 #Min damage
     d_c = d_m #Current damage
     # Knockback duration
     k_M = 0.4 #Max knockback
     k_m = 0.2 #Min knockback
     k_c = k_m #Current knockback
+    # Attack cooldown
+    att_base = 1.1 #1.1x attack cooldown multiplier
+    att_M = 0.36 #Max attack cooldown
+    att_m = 0.55 #Min attack cooldown
+    att_c = att_m #Current attack cooldown
 
     for i in range(minimum, maximum + 1):
         b_c = i #Increment the current beast power along the rows
         p_c = math.floor(p_m + (p_M - p_m)/(b_M - b_m) * (b_c - b_m)) # Calculate pierce
         d_c = math.floor(d_m + (d_M - d_m)/(b_M - b_m) * (b_c - b_m)) # Calculate damage
-        cooldown_splash = round(0.55-(b_c-b_m)/(b_M-b_m) * (0.55 - 0.36), 4) # Rounds to 4dp
+        att_c = round(att_m-(b_c-b_m)/(b_M-b_m) * (att_m - att_M), 4) # Rounds to 4dp
+        percentage_attack = round(att_base/(att_m/att_c), 4) #Calculate percentage multiplier, iapiac says this is what NK uses for code
         k_c = round(k_m + (k_M - k_m)/(b_M - b_m) * (b_c - b_m), 4) # Calculate knockback, rounds to 4dp
         
         print("|-")
         if (b_c == b_M):
-            print("| %s || 1 (grab)<br />%s (splash) || 250,000 (grab, instakill trigger)<br />%s (splash)|| 1.1s (grapple)<br />%ss (splash) || Inflicts %ss knockback via splash. Can trigger instakill on MOABs with less than threshold amount, pulling a single target into the water." % (i, p_c, d_c, cooldown_splash, k_c))
+            print("| %s || 1 (grab)<br />%s (splash) || 250,000 (grab, instakill trigger)<br />%s (splash)|| 1.1s (grapple)<br />%ss (splash, %sx) || Inflicts %ss knockback via splash. Can trigger instakill on MOABs with less than threshold amount, pulling a single target into the water." % (i, p_c, d_c, att_c, percentage_attack, k_c))
         else:
-            print("| %s || 1 (grab)<br />%s (splash) || 250,000 (grab, instakill trigger)<br />%s (splash)|| 1.1s (grapple)<br />%ss (splash) || Inflicts %ss knockback via splash." % (i, p_c, d_c, cooldown_splash, k_c))
+            print("| %s || 1 (grab)<br />%s (splash) || 250,000 (grab, instakill trigger)<br />%s (splash)|| 1.1s (grapple)<br />%ss (splash, %sx) || Inflicts %ss knockback via splash." % (i, p_c, d_c, att_c, percentage_attack, k_c))
 
     print("-------------------------------------------------")
     print("")
@@ -58,19 +64,25 @@ def grid_400(minimum, maximum):
     k_M = 0.6 #Max knockback
     k_m = 0.3 #Min knockback
     k_c = k_m #Current knockback
+    # Attack cooldown
+    att_base = 1.1 #1.1x attack cooldown multiplier
+    att_M = 0.36 #Max attack cooldown
+    att_m = 0.55 #Min attack cooldown
+    att_c = att_m #Current attack cooldown
 
     for i in range(minimum, maximum + 1):
         b_c = i #Increment the current beast power along the rows
         p_c = math.floor(p_m + (p_M - p_m)/(b_M - b_m) * (b_c - b_m)) # Calculate pierce
         d_c = math.floor(d_m + (d_M - d_m)/(b_M - b_m) * (b_c - b_m)) # Calculate damage
-        cooldown_splash = round(0.55-(b_c-b_m)/(b_M-b_m) * (0.55 - 0.36), 4) # Rounds to 4dp
+        att_c = round(att_m-(b_c-b_m)/(b_M-b_m) * (att_m - att_M), 4) # Rounds to 4dp
+        percentage_attack = round(att_base/(att_m/att_c), 4) #Calculate percentage multiplier, iapiac says this is what NK uses for code
         k_c = round(k_m + (k_M - k_m)/(b_M - b_m) * (b_c - b_m), 4) # Calculate knockback, rounds to 4dp
         
         print("|-")
         if (b_c == b_M):
-            print("| %s || 1 (grab)<br />%s (splash) || 250,000 (grab, instakill trigger)<br />%s (splash)|| 1.1s (grapple)<br />%ss (splash) || Inflicts %ss knockback via splash. Can trigger instakill on MOABs, BFBs, ZOMGs, and visible DDTs with less than threshold amount, pulling a single target into the water." % (i, p_c, d_c, cooldown_splash, k_c))
+            print("| %s || 1 (grab)<br />%s (splash) || 250,000 (grab, instakill trigger)<br />%s (splash)|| 1.1s (grapple)<br />%ss (splash, %sx) || Inflicts %ss knockback via splash. Can trigger instakill on MOABs, BFBs, ZOMGs, and visible DDTs with less than threshold amount, pulling a single target into the water." % (i, p_c, d_c, att_c, percentage_attack, k_c))
         else:
-            print("| %s || 1 (grab)<br />%s (splash) || 250,000 (grab, instakill trigger)<br />%s (splash)|| 1.1s (grapple)<br />%ss (splash) || Inflicts %ss knockback via splash. Can trigger instakill on MOABs and BFBs with less than threshold amount, pulling a single target into the water." % (i, p_c, d_c, cooldown_splash, k_c))
+            print("| %s || 1 (grab)<br />%s (splash) || 250,000 (grab, instakill trigger)<br />%s (splash)|| 1.1s (grapple)<br />%ss (splash, %sx) || Inflicts %ss knockback via splash. Can trigger instakill on MOABs and BFBs with less than threshold amount, pulling a single target into the water." % (i, p_c, d_c, att_c, percentage_attack, k_c))
 
     print("-------------------------------------------------")
     print("")
@@ -364,7 +376,7 @@ def grid_003(minimum, maximum):
         p_c = math.floor(p_m + (p_M - p_m)/(b_M - b_m) * (b_c - b_m)) # Calculate pierce
         d_c = math.floor(d_m + (d_M - d_m)/(b_M - b_m) * (b_c - b_m)) # Calculate damage
         ceramic = math.ceil(p_c/2) #calculate total max picks from pierce consumption of Ceramics
-        moab = math.ceil(p_c/45) #calculate total max picks from pierce consumption of MOABs
+        moab = math.ceil(p_c/1089) #calculate total max picks from pierce consumption of MOABs
         cooldown = round(0.6-(b_c-b_m)/(b_M-b_m) * 0.286796242, 4) # Rounds to 4dp
         
         print("|-")
@@ -397,7 +409,6 @@ def grid_004(minimum, maximum):
     regrow_d_bonus = 1 #Regrow damage bonus
 
     #Pierce consumption and total "pierce" of heavier bloons: Ceramics, MOABs, BFBs, targetable DDTs
-    ceramic = 0 #Quantity of Ceramics picked up
     moab = 0 #Quantity of MOABs picked up
     bfb = 0 #Quantity of BFBs picked up
     ddt = 0 #Quantity of targetable DDTs picked up
@@ -407,19 +418,18 @@ def grid_004(minimum, maximum):
         b_c = i
         p_c = math.floor(p_m + (p_M - p_m)/(b_M - b_m) * (b_c - b_m))
         d_c = math.floor(d_m + (d_M - d_m)/(b_M - b_m) * (b_c - b_m))
-        ceramic = math.ceil(p_c/2) #calculate total max picks from pierce consumption of Ceramics
         moab = math.ceil(p_c/15) #calculate total max picks from pierce consumption of MOABs
-        bfb = math.ceil(p_c/45) #calculate total max picks from pierce consumption of BFBs
+        bfb = math.ceil(p_c/30) #calculate total max picks from pierce consumption of BFBs
         ddt = math.ceil(p_c/50) #calculate total max picks from pierce consumption of targetable DDTs
         cooldown = round(0.6-(b_c-b_m)/(b_M-b_m) * 0.286796242, 4) # Rounds to 4dp
         
         print("|-")
         if (b_c == b_M): #the 64/64 case
-            print("| %s || %s || %s (+%s MOAB-class, +%s Regrow) || %ss || Picks up to %s Ceramics, %s MOABs, %s BFBs, and %s (targetable) DDTs. Can target and damage any MOAB-class bloon." % (i, p_c, d_c, moab_d_bonus, regrow_d_bonus, cooldown, ceramic, moab, bfb, ddt))
+            print("| %s || %s || %s (+%s MOAB-class, +%s Regrow) || %ss || Picks up to %s MOABs, %s BFBs, and %s (targetable) DDTs. Can target and damage any MOAB-class bloon." % (i, p_c, d_c, moab_d_bonus, regrow_d_bonus, cooldown, ceramic, moab, bfb, ddt))
         elif (ddt > 1): #the bigger DDT pickups case, which here is 33/64
-            print("| %s || %s || %s (+%s MOAB-class, +%s Regrow) || %ss || Picks up to %s Ceramics, %s MOABs, %s BFBs, and %s (targetable) DDTs" % (i, p_c, d_c, moab_d_bonus, regrow_d_bonus, cooldown, ceramic, moab, bfb, ddt))
+            print("| %s || %s || %s (+%s MOAB-class, +%s Regrow) || %ss || Picks up to %s MOABs, %s BFBs, and %s (targetable) DDTs" % (i, p_c, d_c, moab_d_bonus, regrow_d_bonus, cooldown, ceramic, moab, bfb, ddt))
         else:
-            print("| %s || %s || %s (+%s MOAB-class, +%s Regrow) || %ss || Picks up to %s Ceramics, %s MOABs, %s BFBs, and %s (targetable) DDT" % (i, p_c, d_c, moab_d_bonus, regrow_d_bonus, cooldown, ceramic, moab, bfb, ddt))
+            print("| %s || %s || %s (+%s MOAB-class, +%s Regrow) || %ss || Picks up to %s MOABs, %s BFBs, and %s (targetable) DDT" % (i, p_c, d_c, moab_d_bonus, regrow_d_bonus, cooldown, ceramic, moab, bfb, ddt))
     print("-------------------------------------------------")
     print("")
 
@@ -455,7 +465,7 @@ def grid_005(minimum, maximum):
         p_c = math.floor(p_m + (p_M - p_m)/(b_M - b_m) * (b_c - b_m))
         d_c = math.floor(d_m + (d_M - d_m)/(b_M - b_m) * (b_c - b_m))
         moab = math.ceil(p_c/15) #calculate total max picks from pierce consumption of MOABs
-        bfb = math.ceil(p_c/45) #calculate total max picks from pierce consumption of BFBs
+        bfb = math.ceil(p_c/30) #calculate total max picks from pierce consumption of BFBs
         ddt = math.ceil(p_c/50) #calculate total max picks from pierce consumption of DDTs
         zomg = math.ceil(p_c/50) #calculate total max picks from pierce consumption of ZOMGs
         cooldown = round(0.6-(b_c-b_m)/(b_M-b_m) * 0.286796242, 4) # Rounds to 4dp

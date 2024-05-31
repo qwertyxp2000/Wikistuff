@@ -420,8 +420,8 @@ def grid_004(minimum, maximum):
         d_c = math.floor(d_m + (d_M - d_m)/(b_M - b_m) * (b_c - b_m))
         moab = math.ceil(p_c/15) #calculate total max picks from pierce consumption of MOABs
         bfb = math.ceil(p_c/30) #calculate total max picks from pierce consumption of BFBs
-        ddt = math.ceil(p_c/50) #calculate total max picks from pierce consumption of targetable DDTs
-        cooldown = round(0.6-(b_c-b_m)/(b_M-b_m) * 0.286796242, 4) # Rounds to 4dp
+        ddt = math.ceil(p_c/60) #calculate total max picks from pierce consumption of targetable DDTs
+        cooldown = round(0.6-(b_c-b_m)/(b_M-b_m) * 0.28, 4) # Rounds to 4dp
         
         print("|-")
         if (b_c == b_M): #the 64/64 case
@@ -466,9 +466,9 @@ def grid_005(minimum, maximum):
         d_c = math.floor(d_m + (d_M - d_m)/(b_M - b_m) * (b_c - b_m))
         moab = math.ceil(p_c/15) #calculate total max picks from pierce consumption of MOABs
         bfb = math.ceil(p_c/30) #calculate total max picks from pierce consumption of BFBs
-        ddt = math.ceil(p_c/50) #calculate total max picks from pierce consumption of DDTs
-        zomg = math.ceil(p_c/50) #calculate total max picks from pierce consumption of ZOMGs
-        cooldown = round(0.6-(b_c-b_m)/(b_M-b_m) * 0.286796242, 4) # Rounds to 4dp
+        ddt = math.ceil(p_c/60) #calculate total max picks from pierce consumption of DDTs
+        zomg = math.ceil(p_c/60) #calculate total max picks from pierce consumption of ZOMGs
+        cooldown = round(0.6-(b_c-b_m)/(b_M-b_m) * 0.28, 4) # Rounds to 4dp
         
         print("|-")
         print("| %s || %s || %s (+%s MOAB-class, +%s Regrow) || %ss || Picks up to %s MOABs, %s BFBs, %s ZOMGs, and %s DDTs" % (i, p_c, d_c, moab_d_bonus, regrow_d_bonus, cooldown, moab, bfb, zomg, ddt))

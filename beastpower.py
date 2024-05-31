@@ -339,7 +339,7 @@ def grid_002(minimum, maximum):
         d_c = math.floor(d_m + (d_M - d_m)/(b_M - b_m) * (b_c - b_m)) # Calculate damage
         lead = math.floor(p_c/2) #calculate total max picks from pierce consumption of Leads; NOTE: pierce consumption on Leads floors, not roofs
         ceramic = math.floor(p_c/6) #calculate total max picks from pierce consumption of Ceramics; NOTE: pierce consumption on Ceramics floors, not roofs
-        cooldown = round(0.7-(b_c-b_m)/(b_M-b_m) * 0.286796242, 4) # Rounds to 4dp
+        cooldown = round(0.7-(b_c-b_m)/(b_M-b_m) * 0.28, 4) # Rounds to 4dp
         
         print("|-")
         print("| %s || %s || %s (+%s Regrow) || %ss || Picks up to %s Leads, %s Ceramics" % (i, p_c, d_c, regrow_d_bonus, cooldown, lead, ceramic))

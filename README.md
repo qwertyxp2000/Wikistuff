@@ -3,11 +3,13 @@ This is a bunch of wiki-related notes related to Bloons Wiki and coding for it. 
 
 # Key
 * README.md
-  * Obviously the readme file
+  * Obviously the readme file. Read the file to understand the contents. Simple as that?
 * beginstuff
   * I don't know... possibly just the beginning of creating this repository?
 * beastpower.py
-  * Python file for grdding the Beast Handler table data in terms of beast power.
+  * Python file for gridding the Beast Handler table data in terms of beast power.
+* beastmergetable.py
+  * Python file for grdding up merge efficiency values for the Beast Handler.
 * dreadbloonresistance.py
   * Python file for testing out Dreadbloon resistance suggestion stuff
 * gridbeasthander.py

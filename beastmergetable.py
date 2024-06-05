@@ -72,6 +72,8 @@ for i in range(0, len(difficulty_multiplier)): #Easy, Medium, Hard, Impoppable
 # k = The Beast Handler upgrade tier of a upgrade path (0-3, or in this case Tiers 1-4)
 # l = Difficulty but it is a pushing process
 for j in range(0, len(beastcumulative_cost_table[i])):
+    print("|-")
+    print("! Path %s Beast !! Easy !! Medium !! Hard !! Impoppable" % (j + 1))
     for k in range(0, len(beastcumulative_cost_table[i][j])):
         print("|-")
         #these (j==0)*mathematics stuff are bool conditions, sorta like a compressed IF statement, also a non-newline ending with just a space

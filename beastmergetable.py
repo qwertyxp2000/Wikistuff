@@ -35,7 +35,8 @@ for i in range(0, len(difficulty_multiplier)): #Easy, Medium, Hard, Impoppable
     for j in range(0, len(beastupgrade_cost_medium)):
         for k in range(0, len(beastupgrade_cost_medium[j])):
             beastupgrade_cost_table[i][j].append(RoundToFive(beastupgrade_cost_medium[j][k] * difficulty_multiplier[i]))
-#print(beastupgrade_cost_table)
+print(beastupgrade_cost_table)
+print("----------------------------")
 
 # Cumulative Costs Table
 beastcumulative_cost_table = []
@@ -51,12 +52,13 @@ for i in range(0, len(difficulty_multiplier)): #Start with appending an empty fo
 for i in range(0, len(difficulty_multiplier)): #Easy, Medium, Hard, Impoppable
     for j in range(0, len(beastupgrade_cost_medium)):
         for k in range(0, len(beastupgrade_cost_medium[j])):
-            beast_summation = beasthandler_cost
+            beast_summation = RoundToFive(beasthandler_cost * difficulty_multiplier[i])
             for l in range(0, k + 1): #Increased cap of max by 1 so that the process is shifted 1 up; basically from 1 to (k + 1) instead of 0 to k. If 0 to k, then we get the default "0" which would be just the Beast Handler base cost without any of that extra calculations inside that condition block
                 beast_summation += beastupgrade_cost_table[i][j][l] #go from 0-k again so the summation actually can occur
             #print(beast_summation)
             beastcumulative_cost_table[i][j].append(beast_summation)
-#print(beastcumulative_cost_table)
+print(beastcumulative_cost_table)
+print("----------------------------")
 
 ##Testing that the tables are working as expected
 #print(beastupgrade_cost_medium)

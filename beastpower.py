@@ -22,8 +22,8 @@ def grid_300(minimum, maximum):
     k_c = k_m #Current knockback
     # Attack cooldown
     att_base = 1.1 #1.1x attack cooldown multiplier
-    att_M = 0.36 #Max attack cooldown
-    att_m = 0.55 #Min attack cooldown
+    att_M = 0.36 #Max powered attack cooldown
+    att_m = 0.55 #Min powered attack cooldown
     att_c = att_m #Current attack cooldown
 
     for i in range(minimum, maximum + 1):
@@ -43,7 +43,7 @@ def grid_300(minimum, maximum):
     print("-------------------------------------------------")
     print("")
     
-    # ORCA GRID
+# ORCA GRID
 def grid_400(minimum, maximum):
     print("Orca...")
     print("")
@@ -66,8 +66,8 @@ def grid_400(minimum, maximum):
     k_c = k_m #Current knockback
     # Attack cooldown
     att_base = 1.1 #1.1x attack cooldown multiplier
-    att_M = 0.36 #Max attack cooldown
-    att_m = 0.55 #Min attack cooldown
+    att_M = 0.36 #Max powered attack cooldown
+    att_m = 0.55 #Min powered attack cooldown
     att_c = att_m #Current attack cooldown
 
     for i in range(minimum, maximum + 1):
@@ -83,6 +83,48 @@ def grid_400(minimum, maximum):
             print("| %s || 1 (grab)<br />%s (splash) || 250,000 (grab, instakill trigger)<br />%s (splash)|| 1.1s (grapple)<br />%ss (splash, %sx) || Inflicts %ss knockback via splash. Can trigger instakill on MOABs, BFBs, ZOMGs, and visible DDTs with less than threshold amount, pulling a single target into the water." % (i, p_c, d_c, att_c, percentage_attack, k_c))
         else:
             print("| %s || 1 (grab)<br />%s (splash) || 250,000 (grab, instakill trigger)<br />%s (splash)|| 1.1s (grapple)<br />%ss (splash, %sx) || Inflicts %ss knockback via splash. Can trigger instakill on MOABs and BFBs with less than threshold amount, pulling a single target into the water." % (i, p_c, d_c, att_c, percentage_attack, k_c))
+
+    print("-------------------------------------------------")
+    print("")
+
+# MEGALODON GRID
+def grid_500(minimum, maximum):
+    print("Megalodon...")
+    print("")
+    
+    # Beast Power
+    b_M = 132 # Max beast power
+    b_m = 36 # Min beast power 
+    b_c = b_m #Current beast power
+    # Pierce
+    p_M = 90 #Max pierce
+    p_m = 50 #Min pierce
+    p_c = p_m #Current pierce
+    # Damage
+    d_M = 750 #Max damage
+    d_m = 350 #Min damage
+    d_c = d_m #Current damage
+    # Knockback duration
+    k_M = 0.6 #Max knockback
+    k_m = 0.3 #Min knockback
+    k_c = k_m #Current knockback
+    # Attack cooldown
+    att_base = 1.0 #1.0x attack cooldown multiplier, min power
+    att_Mbase = 0.6561 #0.6561x attack cooldown multiplier, max power
+    att_m = 0.50 #Min powered attack cooldown
+    att_M = att_m * att_Mbase #Max powered attack cooldown
+    att_c = att_m #Current attack cooldown
+
+    for i in range(minimum, maximum + 1):
+        b_c = i #Increment the current beast power along the rows
+        p_c = math.floor(p_m + (p_M - p_m)/(b_M - b_m) * (b_c - b_m)) # Calculate pierce
+        d_c = math.floor(d_m + (d_M - d_m)/(b_M - b_m) * (b_c - b_m)) # Calculate damage
+        att_c = round(att_m-(b_c-b_m)/(b_M-b_m) * (att_m - att_M), 4) # Rounds to 4dp
+        percentage_attack = round(att_base/(att_m/att_c), 4) #Calculate percentage multiplier, iapiac says this is what NK uses for code
+        k_c = round(k_m + (k_M - k_m)/(b_M - b_m) * (b_c - b_m), 4) # Calculate knockback, rounds to 4dp
+        
+        print("|-")
+        print("| %s || 1 (grab)<br />%s (splash) || 250,000 (grab, instakill trigger)<br />%s (splash)|| 1.1s (grapple)<br />%ss (splash, %sx) || Inflicts %ss knockback via splash. Can trigger instakill on MOABs, BFBs, ZOMGs, visible DDTs, and BADs with less than threshold amount, pulling a single target into the water." % (i, p_c, d_c, att_c, percentage_attack, k_c))
 
     print("-------------------------------------------------")
     print("")
@@ -476,13 +518,14 @@ def grid_005(minimum, maximum):
     print("")
 
 # PRINTING GRIDS
-#grid_300(8, 24)
-#grid_400(16, 64)
+grid_300(8, 24)
+grid_400(16, 64)
+grid_500(36, 132)
 #grid_020(3, 6)
 #grid_030(8, 24)
 #grid_040(16, 64)
 #grid_050(36, 132)
 #grid_002(3, 6)
-grid_003(8, 24)
+#grid_003(8, 24)
 #grid_004(16, 64)
 #grid_005(36, 132)

@@ -86,5 +86,5 @@ for j in range(0, len(beastcumulative_cost_table[i])):
             print("||", end = " ")
             print("$%s, %s power" % (beastcumulative_cost_table[l][j][k], beastpowermax[k]), end = " ")
             print("<br />", end = " ")
-            print("$%s / %s power" % (round(beastcumulative_cost_table[l][j][k] / beastpowermax[k], 4), beastpowermax[k]), end = " ")
+            print("$%s / power" % (round(beastcumulative_cost_table[l][j][k] / beastpowermax[k], 4)), end = " ")
         print("")

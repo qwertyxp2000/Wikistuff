@@ -124,7 +124,7 @@ def grid_500(minimum, maximum):
         k_c = round(k_m + (k_M - k_m)/(b_M - b_m) * (b_c - b_m), 4) # Calculate knockback, rounds to 4dp
         
         print("|-")
-        print("| %s || 1 (grab)<br />%s (splash) || 250,000 (grab, instakill trigger)<br />%s (splash)|| 1.1s (grapple)<br />%ss (splash, %sx) || Inflicts %ss knockback via splash. Can trigger instakill on MOABs, BFBs, ZOMGs, visible DDTs, and BADs with less than threshold amount, pulling a single target into the water." % (i, p_c, d_c, att_c, percentage_attack, k_c))
+        print("| %s || 1 (grab)<br />%s (splash) || 250,000 (grab, instakill trigger)<br />%s (splash)|| 1.0s (grapple)<br />%ss (splash, %sx) || Inflicts %ss knockback via splash. Can trigger instakill on MOABs, BFBs, ZOMGs, visible DDTs, and BADs with less than threshold amount, pulling a single target into the water." % (i, p_c, d_c, att_c, percentage_attack, k_c))
 
     print("-------------------------------------------------")
     print("")

@@ -5,7 +5,7 @@ beasthandler_cost = 250
 beastupgrade_cost_medium = [
     [160, 810, 2010, 12500],
     [175, 830, 2065, 9500],
-    [190, 860, 2120, 7800]
+    [190, 860, 2120, 9000]
     ]
 crosspath = [0, 0, 0]
 beastpowermax = [1, 3, 8, 16]

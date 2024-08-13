@@ -213,8 +213,8 @@ def grid_040(minimum, maximum):
     p_m = 22 #Min pierce
     p_c = p_m #Current pierce
     # Damage
-    d_M = 90 #Max damage
-    d_m = 30 #Min damage
+    d_M = 78 #Max damage
+    d_m = 26 #Min damage
     d_c = d_m #Current damage
     # Stunned bonus damage
     sd_v = 3 # Apparently velociraptor and stuff have a 3 divisor
@@ -524,9 +524,9 @@ def grid_005(minimum, maximum):
 #grid_500(36, 132)
 #grid_020(3, 6)
 #grid_030(8, 24)
-#grid_040(16, 64)
+grid_040(16, 64)
 #grid_050(36, 132)
 #grid_002(3, 6)
 #grid_003(8, 24)
-grid_004(16, 64)
-grid_005(36, 132)
+#grid_004(16, 64)
+#grid_005(36, 132)

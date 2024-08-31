@@ -24,6 +24,8 @@ This is a bunch of wiki-related notes related to Bloons Wiki and coding for it. 
     * *even round 200 can crash*
     * *even though there's only one possible combination there, lol*
     * *So basically, if one round breaks, all the other ones are broken too*
+* merchtable.py
+    * A table for the Merchandise article for Makeship merchandise
 * paragoncostsac lead.py
   * Paragon cost sacrifices portion for the leading section of Paragon articles. Probably could expand it to other applyifications like the table and infobox stuff, but idk
 * t5stuff.py

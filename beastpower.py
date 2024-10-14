@@ -109,8 +109,8 @@ def grid_500(minimum, maximum):
     k_m = 0.3 #Min knockback
     k_c = k_m #Current knockback
     # Attack cooldown
-    att_base = 1.0 #1.0x attack cooldown multiplier, min power
-    att_Mbase = 0.6561 #0.6561x attack cooldown multiplier, max power
+    att_base = 0.8 #0.8x attack cooldown multiplier, min power
+    att_Mbase = 0.4561 #0.4561x attack cooldown multiplier, max power
     att_m = 0.50 #Min powered attack cooldown
     att_M = att_m * att_Mbase #Max powered attack cooldown
     att_c = att_m #Current attack cooldown
@@ -124,7 +124,7 @@ def grid_500(minimum, maximum):
         k_c = round(k_m + (k_M - k_m)/(b_M - b_m) * (b_c - b_m), 4) # Calculate knockback, rounds to 4dp
         
         print("|-")
-        print("| %s || 1 (grab)<br />%s (splash) || 250,000 (grab, instakill trigger)<br />%s (splash)|| 1.0s (grapple)<br />%ss (splash, %sx) || Inflicts %ss knockback via splash. Can trigger instakill on MOABs, BFBs, ZOMGs, visible DDTs, and BADs with less than threshold amount, pulling a single target into the water." % (i, p_c, d_c, att_c, percentage_attack, k_c))
+        print("| %s || 1 (grab)<br />%s (splash) || 500,000 (grab, instakill trigger)<br />%s (splash)|| 0.8s (grapple)<br />%ss (splash, %sx) || Inflicts %ss knockback via splash. Can trigger instakill on MOABs, BFBs, ZOMGs, visible DDTs, and BADs with less than threshold amount, pulling a single target into the water." % (i, p_c, d_c, att_c, percentage_attack, k_c))
 
     print("-------------------------------------------------")
     print("")
@@ -521,10 +521,10 @@ def grid_005(minimum, maximum):
 # PRINTING GRIDS
 #grid_300(8, 24)
 #grid_400(16, 64)
-#grid_500(36, 132)
+grid_500(36, 132)
 #grid_020(3, 6)
 #grid_030(8, 24)
-grid_040(16, 64)
+#grid_040(16, 64)
 #grid_050(36, 132)
 #grid_002(3, 6)
 #grid_003(8, 24)

@@ -111,8 +111,8 @@ def grid_500(minimum, maximum):
     # Attack cooldown
     att_base = 0.8 #0.8x attack cooldown multiplier, min power
     att_Mbase = 0.4561 #0.4561x attack cooldown multiplier, max power
-    att_m = 0.50 #Min powered attack cooldown
-    att_M = att_m * att_Mbase #Max powered attack cooldown
+    att_m = 0.5*att_base #Min powered attack cooldown
+    att_M = 0.5*att_Mbase #Max powered attack cooldown
     att_c = att_m #Current attack cooldown
 
     for i in range(minimum, maximum + 1):

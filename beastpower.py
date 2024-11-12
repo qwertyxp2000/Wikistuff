@@ -511,7 +511,7 @@ def grid_005(minimum, maximum):
         bfb = math.ceil(p_c/30) #calculate total max picks from pierce consumption of BFBs
         ddt = math.ceil(p_c/30) #calculate total max picks from pierce consumption of DDTs
         zomg = math.ceil(p_c/60) #calculate total max picks from pierce consumption of ZOMGs
-        cooldown = round(0.6-(b_c-b_m)/(b_M-b_m) * 0.28, 4) # Rounds to 4dp
+        cooldown = round(0.8-(b_c-b_m)/(b_M-b_m) * 0.52, 4) # Rounds to 4dp
         
         print("|-")
         print("| %s || %s || %s (+%s MOAB-class, +%s Regrow) || %ss || Picks up to %s MOABs, %s BFBs, %s ZOMGs, and %s DDTs" % (i, p_c, d_c, moab_d_bonus, regrow_d_bonus, cooldown, moab, bfb, zomg, ddt))
@@ -521,7 +521,7 @@ def grid_005(minimum, maximum):
 # PRINTING GRIDS
 #grid_300(8, 24)
 #grid_400(16, 64)
-grid_500(36, 132)
+#grid_500(36, 132)
 #grid_020(3, 6)
 #grid_030(8, 24)
 #grid_040(16, 64)
@@ -529,4 +529,4 @@ grid_500(36, 132)
 #grid_002(3, 6)
 #grid_003(8, 24)
 #grid_004(16, 64)
-#grid_005(36, 132)
+grid_005(36, 132)

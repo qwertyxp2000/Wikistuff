@@ -428,7 +428,7 @@ def grid_003(minimum, maximum):
         d_c = math.floor(d_m + (d_M - d_m)/(b_M - b_m) * (b_c - b_m)) # Calculate damage
         ceramic = math.ceil(p_c/2) #calculate total max picks from pierce consumption of Ceramics
         moab = math.ceil(p_c/1089) #calculate total max picks from pierce consumption of MOABs
-        cooldown = round(1-(b_c-b_m)/(b_M-b_m) * 0.48, 4) # Rounds to 4dp
+        cooldown = round(1-(b_c-b_m)/(b_M-b_m) * 0.52, 4) # Rounds to 4dp
         flight = round(f_m + (f_M - f_m) * (b_c - b_m)/(b_M - b_m), 4) # Rounds to 4dp
         
         print("|-")
@@ -478,7 +478,7 @@ def grid_004(minimum, maximum):
         moab = math.ceil(p_c/15) #calculate total max picks from pierce consumption of MOABs
         bfb = math.ceil(p_c/30) #calculate total max picks from pierce consumption of BFBs
         ddt = math.ceil(p_c/30) #calculate total max picks from pierce consumption of targetable DDTs
-        cooldown = round(1-(b_c-b_m)/(b_M-b_m) * 0.48, 4) # Rounds to 4dp
+        cooldown = round(1-(b_c-b_m)/(b_M-b_m) * 0.52, 4) # Rounds to 4dp
         flight = round(f_m + (f_M - f_m) * (b_c - b_m)/(b_M - b_m), 4) # Rounds to 4dp
         
         print("|-")

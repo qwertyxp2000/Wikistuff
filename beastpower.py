@@ -1,3 +1,4 @@
+
 import math
 # GREAT WHITE GRID
 def grid_300(minimum, maximum):
@@ -101,8 +102,8 @@ def grid_500(minimum, maximum):
     p_m = 50 #Min pierce
     p_c = p_m #Current pierce
     # Damage
-    d_M = 750 #Max damage
-    d_m = 350 #Min damage
+    d_M = 2100 #Max damage
+    d_m = 700 #Min damage
     d_c = d_m #Current damage
     # Knockback duration
     k_M = 0.6 #Max knockback
@@ -541,7 +542,7 @@ def grid_005(minimum, maximum):
 # PRINTING GRIDS
 #grid_300(8, 24)
 #grid_400(16, 64)
-#grid_500(36, 132)
+grid_500(36, 132)
 #grid_020(3, 6)
 #grid_030(8, 24)
 #grid_040(16, 64)

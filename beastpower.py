@@ -237,7 +237,7 @@ def grid_040(minimum, maximum):
     ad_c = d_m #Current damage
     # NOTE: Ability doesn't do bonus stunned damage
     # Ability Cooldown
-    a_m = 35 # Ability cooldown of min power beast
+    a_m = 40 # Ability cooldown of min power beast
     a_c = a_m #Current ability cooldown
 
     for i in range(minimum, maximum + 1):
@@ -542,12 +542,12 @@ def grid_005(minimum, maximum):
 # PRINTING GRIDS
 #grid_300(8, 24)
 #grid_400(16, 64)
-grid_500(36, 132)
+#grid_500(36, 132)
 #grid_020(3, 6)
 #grid_030(8, 24)
-#grid_040(16, 64)
+grid_040(16, 64)
 #grid_050(36, 132)
-grid_002(3, 6)
-grid_003(8, 24)
-grid_004(16, 64)
-grid_005(36, 132)
+#grid_002(3, 6)
+#grid_003(8, 24)
+#grid_004(16, 64)
+#grid_005(36, 132)

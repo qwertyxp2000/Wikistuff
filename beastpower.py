@@ -144,8 +144,8 @@ def grid_020(minimum, maximum):
     p_m = 8 #Min pierce
     p_c = p_m #Current pierce
     # Damage
-    d_M = 6 #Max damage
-    d_m = 3 #Min damage
+    d_M = 4 #Max damage
+    d_m = 2 #Min damage
     d_c = d_m #Current damage
 
     for i in range(minimum, maximum + 1):
@@ -170,12 +170,12 @@ def grid_030(minimum, maximum):
     b_m = 8 # Min beast power 
     b_c = b_m #Current beast power
     # Pierce
-    p_M = 35 #Max pierce
-    p_m = 14 #Min pierce
+    p_M = 23 #Max pierce
+    p_m = 9 #Min pierce
     p_c = p_m #Current pierce
     # Damage
-    d_M = 27 #Max damage
-    d_m = 9 #Min damage
+    d_M = 12 #Max damage
+    d_m = 4 #Min damage
     d_c = d_m #Current damage
     # Stunned bonus damage
     sd_v = 3 # Apparently velociraptor and stuff have a 3 divisor
@@ -195,7 +195,7 @@ def grid_030(minimum, maximum):
         r_c = round(1-(b_c-b_m)/(b_M-b_m) * 0.3439, 4) # Attack cooldown; rounds to 4dp
         
         print("|-")
-        print("| %s || %s || %s (+%s stunned) || %ss || N/A" % (i, p_c, d_c, sd_c, r_c))
+        print("| %s || %s || %s (+%s stunned) || %ss || Does +4 Ceramic damage." % (i, p_c, d_c, sd_c, r_c))
 
     print("-------------------------------------------------")
     print("")
@@ -210,12 +210,12 @@ def grid_040(minimum, maximum):
     b_m = 16 # Min beast power 
     b_c = b_m #Current beast power
     # Pierce
-    p_M = 55 #Max pierce
-    p_m = 22 #Min pierce
+    p_M = 18 #Max pierce
+    p_m = 45 #Min pierce
     p_c = p_m #Current pierce
     # Damage
-    d_M = 78 #Max damage
-    d_m = 26 #Min damage
+    d_M = 20 #Max damage
+    d_m = 60 #Min damage
     d_c = d_m #Current damage
     # Stunned bonus damage
     sd_v = 3 # Apparently velociraptor and stuff have a 3 divisor
@@ -249,10 +249,10 @@ def grid_040(minimum, maximum):
 
         if (b_c == b_M):
             print("|-")
-            print("| %s || %s || %s (+%s stunned) || %ss || Penetrates damage through MOAB-class bloons" % (i, p_c, d_c, sd_c, r_c))
+            print("| %s || %s || %s (+%s stunned) || %ss || Does +5 Ceramic damage. Penetrates damage through MOAB-class bloons" % (i, p_c, d_c, sd_c, r_c))
         else:
             print("|-")
-            print("| %s || %s || %s (+%s stunned) || %ss || N/A" % (i, p_c, d_c, sd_c, r_c))
+            print("| %s || %s || %s (+%s stunned) || %ss || Does +5 Ceramic damage" % (i, p_c, d_c, sd_c, r_c))
 
     print("-------------------------------------------------")
     print("")
@@ -543,8 +543,8 @@ def grid_005(minimum, maximum):
 #grid_300(8, 24)
 #grid_400(16, 64)
 #grid_500(36, 132)
-#grid_020(3, 6)
-#grid_030(8, 24)
+grid_020(3, 6)
+grid_030(8, 24)
 grid_040(16, 64)
 #grid_050(36, 132)
 #grid_002(3, 6)

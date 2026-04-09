@@ -180,7 +180,7 @@ def grid_030(minimum, maximum):
     # Stunned bonus damage
     sd_v = 3 # Apparently velociraptor and stuff have a 3 divisor
     sd_m = 3
-    sd_c = sd_m #defaulting to sd_m just because
+    sd_c = sd_m
     # Attack Cooldown
     r_s = 0.3439 #Attack cooldown scaler
     r_m = 1 #Min attack speed
@@ -191,7 +191,18 @@ def grid_030(minimum, maximum):
         b_c = i #Increment the current beast power along the rows
         p_c = math.floor(p_m + (p_M - p_m)/(b_M - b_m) * (b_c - b_m)) # Calculate pierce
         d_c = math.floor(d_m + (d_M - d_m)/(b_M - b_m) * (b_c - b_m)) # Calculate damage
-        sd_c = sd_m + math.floor((d_c - d_m)/sd_v) # Calculate bonus stunned damage
+        #DEBUG BEGINS
+        #print("--------")
+        #print("current beast power: %s" % b_c) #current beast power
+        #print(sd_m) #stunned min bonus
+        #print(d_c) #current damage
+        #print(d_m) #minimum damage
+        #print(sd_v) #stunned damage divisor
+        #print(d_c-d_m) #current damage minus min damage
+        #print((d_c-d_m)/sd_v) #the sum of the current vs min damage divided by stunned divisor
+        # TESTING INGAME: stunned test moab with Maim MOAB vs 16/24, got 21 damage in v53.2, with 24/24 got 32 damage in v53.2
+        #DEBUG ENDS
+        sd_c = sd_m + math.floor((d_c-d_m)/sd_v) # Calculate bonus stunned damage; base sd + floor(d_range*percent/sdd)
         r_c = round(1-(b_c-b_m)/(b_M-b_m) * 0.3439, 4) # Attack cooldown; rounds to 4dp
         
         print("|-")
@@ -214,13 +225,13 @@ def grid_040(minimum, maximum):
     p_m = 45 #Min pierce
     p_c = p_m #Current pierce
     # Damage
-    d_M = 20 #Max damage
-    d_m = 60 #Min damage
+    d_M = 60 #Max damage
+    d_m = 20 #Min damage
     d_c = d_m #Current damage
     # Stunned bonus damage
     sd_v = 3 # Apparently velociraptor and stuff have a 3 divisor
     sd_m = 8
-    sd_c = sd_m #defaulting to sd_m just because
+    sd_c = sd_m
     # Attack Cooldown
     r_s = 0.3439 #Attack cooldown scaler
     r_m = 1 #Min attack speed
@@ -244,7 +255,7 @@ def grid_040(minimum, maximum):
         b_c = i #Increment the current beast power along the rows
         p_c = math.floor(p_m + (p_M - p_m)/(b_M - b_m) * (b_c - b_m)) # Calculate pierce
         d_c = math.floor(d_m + (d_M - d_m)/(b_M - b_m) * (b_c - b_m)) # Calculate damage
-        sd_c = sd_m + math.floor((d_c - d_m)/sd_v) # Calculate bonus stunned damage
+        sd_c = sd_m + math.floor((d_c-d_m)/sd_v) # Calculate bonus stunned damage; base sd + floor(d_range*percent/sdd)
         r_c = round(r_m-(b_c-b_m)/(b_M-b_m) * r_s, 4) # Attack cooldown; rounds to 4dp
 
         if (b_c == b_M):
@@ -286,8 +297,8 @@ def grid_050(minimum, maximum):
     b_m = 36 # Min beast power 
     b_c = b_m #Current beast power
     # Pierce
-    p_M = 150 #Max pierce
-    p_m = 60 #Min pierce
+    p_M = 110 #Max pierce
+    p_m = 44 #Min pierce
     p_c = p_m #Current pierce
     # Damage
     d_M = 1550 #Max damage
@@ -296,7 +307,7 @@ def grid_050(minimum, maximum):
     # Stunned bonus damage
     sd_v = 3 # Apparently velociraptor and stuff have a 3 divisor
     sd_m = 250
-    sd_c = sd_m #defaulting to sd_m just because
+    sd_c = sd_m
     # Attack Cooldown
     r_s = 0.3439 #Attack cooldown scaler
     r_m = 1.25 #Min attack speed
@@ -320,15 +331,17 @@ def grid_050(minimum, maximum):
         b_c = i #Increment the current beast power along the rows
         p_c = math.floor(p_m + (p_M - p_m)/(b_M - b_m) * (b_c - b_m)) # Calculate pierce
         d_c = math.floor(d_m + (d_M - d_m)/(b_M - b_m) * (b_c - b_m)) # Calculate damage
-        sd_c = sd_m + math.floor((d_c - d_m)/sd_v) # Calculate bonus stunned damage
+        sd_c = sd_m + math.floor((d_c-d_m)/sd_v) # Calculate bonus stunned damage; base sd + floor(d_range*percent/sdd)
         r_c = round(r_m-(b_c-b_m)/(b_M-b_m) * r_s, 4) # Attack cooldown; rounds to 4dp
 
-        if (b_c == b_M):
-            print("|-")
-            print("| %s || %s || %s (+%s stunned) || %ss || Penetrates damage through MOAB-class bloons" % (i, p_c, d_c, sd_c, r_c))
-        else:
-            print("|-")
-            print("| %s || %s || %s (+%s stunned) || %ss || N/A" % (i, p_c, d_c, sd_c, r_c))
+        #if (b_c == b_M):
+        #    print("|-")
+        #    print("| %s || %s || %s (+%s stunned) || %ss || Penetrates damage through MOAB-class bloons" % (i, p_c, d_c, sd_c, r_c))
+        #else:
+        #    print("|-")
+        #    print("| %s || %s || %s (+%s stunned) || %ss || N/A" % (i, p_c, d_c, sd_c, r_c))
+        print("|-")
+        print("| %s || %s || %s (+%s stunned) || %ss || Penetrates damage through MOAB-class bloons" % (i, p_c, d_c, sd_c, r_c))
 
     print("-------------------------------------------------")
     print("")
@@ -543,8 +556,8 @@ def grid_005(minimum, maximum):
 #grid_300(8, 24)
 #grid_400(16, 64)
 #grid_500(36, 132)
-grid_020(3, 6)
-grid_030(8, 24)
+#grid_020(3, 6)
+#grid_030(8, 24)
 grid_040(16, 64)
 #grid_050(36, 132)
 #grid_002(3, 6)

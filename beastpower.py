@@ -170,11 +170,11 @@ def grid_030(minimum, maximum):
     b_m = 8 # Min beast power 
     b_c = b_m #Current beast power
     # Pierce
-    p_M = 23 #Max pierce
-    p_m = 9 #Min pierce
+    p_M = 26 #Max pierce
+    p_m = 12 #Min pierce
     p_c = p_m #Current pierce
     # Damage
-    d_M = 12 #Max damage
+    d_M = 16 #Max damage
     d_m = 4 #Min damage
     d_c = d_m #Current damage
     # Stunned bonus damage
@@ -557,8 +557,8 @@ def grid_005(minimum, maximum):
 #grid_400(16, 64)
 #grid_500(36, 132)
 #grid_020(3, 6)
-#grid_030(8, 24)
-grid_040(16, 64)
+grid_030(8, 24)
+#grid_040(16, 64)
 #grid_050(36, 132)
 #grid_002(3, 6)
 #grid_003(8, 24)
